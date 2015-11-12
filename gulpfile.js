@@ -116,7 +116,7 @@ var destPath = {
 	});
 	// 样式处理
 	gulp.task('sassRelease', function () {
-		return sass( srcPath.css, { style: 'compressed' }) // 指明源文件路径、并进行文件匹配（编译风格：压缩）
+		return sass( srcPath.css+'/*.scss', { style: 'compressed' }) // 指明源文件路径、并进行文件匹配（编译风格：压缩）
 			.on('error', function (err) {
 				console.error('Error!', err.message); // 显示错误信息
 			})
