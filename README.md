@@ -82,7 +82,7 @@ var gulp = require('gulp'); // 基础库
 var sass = require('gulp-ruby-sass'); // sass/scss编译
 
 gulp.task('sass', function () {
-     return sass('src/css', { style: 'compressed' }) // 指明源文件路径、并进行文件匹配（style: 'compressed' 表示输出格式）
+     return sass('src/css/*.scss', { style: 'compressed' }) // 指明源文件路径、并进行文件匹配（style: 'compressed' 表示输出格式）
           .on('error', function (err) {
                console.error('Error!', err.message); // 显示错误信息
           })
