@@ -18,6 +18,7 @@ var sass 			=  require('gulp-ruby-sass'),		// CSS预处理/Sass编译
 	concat 			= require("gulp-concat"), 			// 文件合并
 	clean 			= require('gulp-clean'),			// 文件清理
 	autoprefixer = require('gulp-autoprefixer');		// css后处理，加css3前缀
+	pixrem = require('gulp-pixrem');				//px to rem
 /* = 全局路径设置
 -------------------------------------------------------------- */
 var srcPath = {
@@ -47,6 +48,27 @@ var destPath = {
 			.pipe(changed( destPath.css ))
 			.pipe(gulp.dest( destPath.css ));
 	});
+	//PX TO REM
+	// gulp.task('css', function() {
+	//   gulp.src('css/style.css')
+	//     .pipe(pixrem())
+	//     .pipe(gulp.dest('public/css/'));
+	// });
+	 
+	// gulp.task('css', function() {
+	//   gulp.src('css/style.css')
+	//     .pipe(pixrem({ rootValue: '10px' }))
+	//     .pipe(gulp.dest('public/css/'));
+	// });
+	 
+	// gulp.task('css', function() {
+	//   gulp.src('css/style.css')
+	//     .pipe(pixrem({
+	//       rootValue: '100%',
+	//       replace: true
+	//     }))
+	//     .pipe(gulp.dest('public/css/'));
+	// });
 	// 样式处理 压缩成compressed
 	gulp.task('cssmin', function () {
  	    return sass(srcPath.css+'/**/*.scss', { style: 'compressed' }) // 指明源文件路径、并进行文件匹配（style: 'compressed' 表示输出格式）
